@@ -1,0 +1,62 @@
+body{
+    
+    background-image: url("background.png");
+}
+
+.container{
+    width: 700px;
+    margin-top: 40px;
+}
+.jumbotron{
+    background-color: white;
+    border: solid black 2px;
+}
+
+.display-4{
+    text-align: center;
+    position: relative;
+    bottom: 50px;
+    font-size: 65px;
+}
+
+.lead{
+    text-align: center;
+    position: relative;
+    bottom: 10px;
+}
+
+.btn-lg{
+    text-align: center;
+    position: relative;
+    background-color: green;
+    border: green;
+}
+
+.timer{
+    float: left;
+    position: relative;
+    margin-left: 40px;
+    border: solid black 2px;
+    
+}
+.card-title{
+    text-align: center;
+    font-size: 40px;
+}
+
+.highscore{
+    float: right;
+    position: relative;
+    margin-right: 40px;
+    border: solid black 2px;
+}
+
+.card-header{
+    text-align: center;
+    font-size: 40px;
+}
+.card-text{
+    text-align: center;
+    font-size: 40px;
+}
+    
