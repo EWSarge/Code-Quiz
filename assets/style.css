@@ -34,7 +34,7 @@ body{
 
 .timer{
     float: left;
-    position: relative;
+  
     margin-left: 40px;
     border: solid black 2px;
     
@@ -46,7 +46,7 @@ body{
 
 .highscore{
     float: right;
-    position: relative;
+    
     margin-right: 40px;
     border: solid black 2px;
 }
