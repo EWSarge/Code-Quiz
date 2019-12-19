@@ -1,16 +1,22 @@
 console.log("linked correctly")
 
-var quizContainer = document.getElementById('quiz');
-var resultsContainer = document.getElementById('results');
-var submitButton = document.getElementById('submit');
-
 var questions = document.getElementById("questions");
-var timer = document.getElementById("time");
-var choices = document.getElementById("choices");
-var submit = document.getElementById("submit");
+
 var start = document.getElementById("start");
+
+var answers = document.getElementById("choices");
+var submit = document.getElementById("submit");
+
 var initials = document.getElementById("initials");
 var result = document.getElementById("feedback");
+
+var timer = document.querySelector(".time");
+
+var currentQuestionIndex = 0;
+var time = questions.length * 15;
+var timerId;
+
+
 
 
 var questions = [
@@ -43,5 +49,68 @@ var questions = [
       },
     
 ];
+
+function start1(){
+    var beginning = document.querySelector(".start");
+    beginning.setAttribute("class", "hide");
+
+    questions.removeAttribute("class");
+
+    timerId = setInterval(clockTick, 1000);
+
+  timer.textContent = time;
+
+  getQuestion();
+
+}
+
+function getQuestion() {
+    
+    var questionOne = questions[currentQuestionIndex];
+  
+    var title1 = document.getElementById("question-title");
+    title1.textContent = questionOne.title;
+    answers.innerHTML = "";
+  
+    questionOne.choices.forEach(function(choice, i) {
+   
+      var chbtn = document.createElement("button");
+      chbtn.setAttribute("class", "choice");
+      chbtn.setAttribute("value", choice);
+  
+      chbtn.textContent = i + 1 + ". " + choice;
+  
+      chbtn.onclick = questionClick;
+  
+      answers.appendChild(chbtn);
+    });
+  };
+
+  function questionClick(){
+    if (this.value !== questions[currentQuestionIndex].answer){
+        alert("wrong!")
+    }
+    else {
+        alert("Right!")
+    }
+
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex === questions.length) {
+        quizEnd();
+      } else {
+        getQuestion();
+      }
+    }
+    
+    start.addEventListener("click", start1);
+  
+
+ 
+
+  console.log(getQuestion())
+
+ 
+  
 
 

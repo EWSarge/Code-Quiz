@@ -10,7 +10,7 @@
             <div class="card timer" style="width: 18rem;">
                     <div class="card-body">
                       <h5 class="card-title">Timer</h5>
-                      <p class="card-text">0</p>
+                      <p class="card-text time"></p>
                     </div>
                   </div>
                   <div class="card highscore" style="width: 18rem;">
@@ -25,12 +25,17 @@
                       </div>
                   
         <div class="container">
-                <div class="jumbotron">
+                <div class="jumbotron"> <div id="questions" class="hide">
+                  <h2 id="question-title"></h2>
+                  <div id="choices" class="choices"></div>
+                </div>
+          <div class="start">
                         <h1 class="display-4"><bold>jQuery Coding Quiz</bold></h1>
                         <div id="quiz"></div>
                         <hr class="my-4">
                         <div id="results"></div>
-                        <center><a class="btn btn-primary btn-lg submit" href="#" role="button">Start Quiz!</a></center>
+                        <center><a class="btn btn-primary btn-lg" id="start" href="#" role="button">Start Quiz!</a></center>
+                      </div>
                       </div>
                 </div>
 
