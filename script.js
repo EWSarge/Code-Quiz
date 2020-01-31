@@ -45,23 +45,19 @@ var questions = [
       {
         title: "What command would you use to pull from an API?",
         choices: ["API.run", "Ajax", "console.log()"],
-        answer: "Ajax)"
+        answer: "Ajax"
       },
     
 ];
 
-// document.getElementById("start").onclick = begin();
 
 function begin() {
  
   var beginning = document.querySelector("#headline");
-  //document.getElementsByTagName('h1')[0].style.display = 'none';
   beginning.style.display = "none";
+  start.style.display = "none";
 
   console.log("working")
-
-  // un-hide questions section
-  //questionsEl.removeAttribute("class");
 
   // start timer
   //timerId = setInterval(clockTick, 1000);
@@ -69,59 +65,55 @@ function begin() {
   // show starting time
  // timerEl.textContent = time;
 
-  //getQuestion();
+  getQuestions();
 };
 
-start.onclick = begin
+function getQuestions(){
+  var qOne = questions[currentQuestionIndex];
 
-
-
-
-
-
-// function getQuestion() {
-    
-//     var questionOne = questions[currentQuestionIndex];
+  var title1 = document.getElementById("question-title");
+  title1.textContent = qOne.title;
+  answers.innerHTML = "";
   
-//     var title1 = document.getElementById("question-title");
-//     title1.textContent = questionOne.title;
-//     answers.innerHTML = "";
-  
-//     questionOne.choices.forEach(function(choice, i) {
+qOne.choices.forEach(function(choice, i) {
    
-//       var chbtn = document.createElement("button");
-//       chbtn.setAttribute("class", "choice");
-//       chbtn.setAttribute("value", choice);
+      var chbtn = document.createElement("button");
+      chbtn.setAttribute("class", "choice");
+      chbtn.setAttribute("value", choice);
+      chbtn.setAttribute("class", "btn btn-primary btn-sm");
+      chbtn.style.margin = "10px";
   
-//       chbtn.textContent = i + 1 + ". " + choice;
+      chbtn.textContent = i + 1 + ". " + choice;
   
-//       chbtn.onclick = questionClick;
+      chbtn.onclick = questionClick;
   
-//       answers.appendChild(chbtn);
-//     });
-//   };
+      answers.appendChild(chbtn);
+    });
 
-//   function questionClick(){
-//     if (this.value !== questions[currentQuestionIndex].answer){
-//         alert("wrong!")
-//     }
-//     else {
-//         alert("Right!")
-//     }
 
-//     currentQuestionIndex++;
+}
 
-//     if (currentQuestionIndex === questions.length) {
-//         quizEnd();
-//       } else {
-//         getQuestion();
-//       }
-//     }
+
+ function questionClick(){
+    if (this.value !== questions[currentQuestionIndex].answer){
+        alert("wrong!")
+    }
+    else {
+        alert("Right!")
+    }
+
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex === questions.length) {
+        quizEnd();
+      } else {
+        getQuestions();
+      }
+    }
     
-//     start.addEventListener("click", start1);
+    start.addEventListener("click", start);
   
 
- 
 
-//   console.log(getQuestion())
+start.onclick = begin
 
