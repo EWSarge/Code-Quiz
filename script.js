@@ -13,7 +13,7 @@ var result = document.getElementById("feedback");
 var timer = document.querySelector(".time");
 
 var currentQuestionIndex = 0;
-var time = questions.length * 15;
+var time = 60;
 var timerId;
 
 
@@ -60,10 +60,10 @@ function begin() {
   console.log("working")
 
   // start timer
-  //timerId = setInterval(clockTick, 1000);
+  timerId = setInterval(clockTick, 1000);
 
   // show starting time
- // timerEl.textContent = time;
+ timer.textContent = time;
 
   getQuestions();
 };
@@ -108,6 +108,17 @@ qOne.choices.forEach(function(choice, i) {
         quizEnd();
       } else {
         getQuestions();
+      }
+    }
+
+    function clockTick() {
+      // update time
+      time--;
+      timer.textContent = time;
+    
+      // check if user ran out of time
+      if (time <= 0) {
+        quizEnd();
       }
     }
     
